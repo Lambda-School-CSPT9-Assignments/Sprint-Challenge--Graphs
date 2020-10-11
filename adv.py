@@ -29,15 +29,20 @@ player = Player(world.starting_room)
 # traversal_path = ['n', 'n']
 traversal_path = []
 
-print(room_graph)
+# print(room_graph)
 
 rooms_visited = {}
 curr_path = []
 rev_dir = {'n':'s', 's':'n', 'e':'w', 'w':'e'}
 
 rooms_visited[player.current_room.id] = player.current_room.get_exits()
+print(rooms_visited[player.current_room.id])
+print(len(rooms_visited))
+print(len(world.rooms)-1)
 
-while len(rooms_visited) < len(room_graph) - 1:
+while len(rooms_visited) < len(world.rooms) - 1:
+    print(player.current_room.id)
+    print(rooms_visited)
     if player.current_room.id not in rooms_visited:
         rooms_visited[player.current_room.id] = player.current_room.get_exits()
         previous_direction = curr_path[-1]
